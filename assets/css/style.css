@@ -125,7 +125,18 @@
   box-sizing: border-box;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+  color: var(--orange-yellow-crayola);
+}
+
+a:visited {
+  color: var(--orange-yellow-crayola);
+}
+
+a:hover {
+  color: var(--white-2);
+}
 
 li { list-style: none; }
 
@@ -781,12 +792,36 @@ main {
   margin-bottom: 25px;
 }
 
-.resume-links a {
+/* Attractive, consistent link styling inside the resume section */
+.resume a {
   color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-500);
+  letter-spacing: 0.3px;
   text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-1), transform var(--transition-1), text-shadow var(--transition-1);
 }
 
-.resume-links a:hover { text-decoration: underline; }
+.resume a:hover {
+  color: var(--white-2);
+  text-shadow: 0 0 8px var(--orange-yellow-crayola);
+  transform: translateY(-1px);
+}
+
+/* Projects (E‑Commerce, SwipePoint, etc.) links inside Resume */
+.resume .timeline-list span a {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--orange-yellow-crayola);
+  background: rgba(0, 0, 0, 0.25);
+  font-size: var(--fs-7);
+}
+
+.resume .timeline-list span a:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  text-shadow: none;
+}
 
 
 /**
@@ -858,10 +893,27 @@ main {
 
 .skills-title { margin-bottom: 20px; }
 
-.skills-list { padding: 20px; }
+.skills-list {
+  padding: 20px 20px 20px 28px;
+  list-style: disc;
+  list-style-position: outside;
+}
 
+/* Technical Skills: clean list layout, even lines */
+.skills-list .skills-item {
+  list-style: disc;
+  list-style-position: outside;
+  display: list-item;
+  margin-left: 0;
+  padding-left: 0.35em;
+  line-height: 1.65;
+  text-align: left;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+}
 
-.skills-item:not(:last-child) { margin-bottom: 15px; }
+.skills-item:not(:last-child) { margin-bottom: 12px; }
 
 .skill .title-wrapper {
   display: flex;
