@@ -777,19 +777,81 @@ main {
 
 .article-title { margin-bottom: 30px; }
 
-.resume-subtitle,
-.resume-contact,
-.resume-links,
-.resume-tagline {
-  color: var(--light-gray);
-  font-size: var(--fs-7);
-  margin-bottom: 8px;
-  font-weight: var(--fw-400);
+/* Professional Resume Header */
+.resume-header {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--jet);
 }
 
-.resume-tagline {
-  font-style: italic;
-  margin-bottom: 25px;
+.resume-header-top {
+  margin-bottom: 16px;
+}
+
+.resume-header .article-title {
+  margin-bottom: 4px;
+}
+
+.resume-role {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  letter-spacing: 0.5px;
+}
+
+.resume-contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-bottom: 12px;
+}
+
+.resume-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-400);
+  text-decoration: none;
+  transition: color var(--transition-1);
+}
+
+a.resume-contact-item:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+.resume-contact-item ion-icon {
+  font-size: 16px;
+  color: var(--orange-yellow-crayola);
+  flex-shrink: 0;
+}
+
+.resume-links-bar {
+  font-size: var(--fs-7);
+  color: var(--light-gray-70);
+}
+
+.resume-links-bar a {
+  font-size: inherit;
+}
+
+.resume-divider {
+  margin: 0 10px;
+  color: var(--jet);
+  font-weight: 300;
+}
+
+.resume-approach-list {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+  color: var(--light-gray);
+  line-height: 1.8;
+}
+
+.resume-summary p {
+  line-height: 1.7;
+  max-width: 700px;
 }
 
 /* Attractive, consistent link styling inside the resume section */
@@ -835,6 +897,8 @@ main {
   align-items: center;
   gap: 15px;
   margin-bottom: 25px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.06);
 }
 
 .timeline-list {
