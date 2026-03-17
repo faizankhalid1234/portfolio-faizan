@@ -369,7 +369,8 @@ main {
   flex-shrink: 0;
 }
 
-.avatar-box img {
+.avatar-box img,
+.avatar-box .avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
