@@ -166,7 +166,14 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body {
+  background: var(--smoky-black);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, hsla(45, 100%, 72%, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, hsla(45, 100%, 72%, 0.04), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, hsla(45, 100%, 72%, 0.05), transparent);
+  min-height: 100vh;
+}
 
 
 
@@ -185,6 +192,7 @@ article {
   box-shadow: var(--shadow-1);
   z-index: 1;
 }
+
 
 .separator {
   width: 100%;
@@ -1179,6 +1187,16 @@ a.resume-contact-item:hover {
 
 .filter-list { display: none; }
 
+.portfolio-header { margin-bottom: 28px; }
+
+.portfolio-subtitle {
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-400);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
 .filter-select-box {
   position: relative;
   margin-bottom: 25px;
@@ -1253,7 +1271,17 @@ a.resume-contact-item:hover {
   100% { transform: scale(1); }
 }
 
-.project-item > a { width: 100%; }
+.project-item > a {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-item > a:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px hsla(0, 0%, 0%, 0.4), 0 0 30px hsla(45, 100%, 72%, 0.08);
+}
 
 .project-img {
   position: relative;
@@ -1309,7 +1337,9 @@ a.resume-contact-item:hover {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover img { transform: scale(1.1); }
+.project-item > a:hover img { transform: scale(1.08); }
+
+.project-item > a:hover .project-title { color: var(--orange-yellow-crayola); }
 
 .project-title,
 .project-category { margin-left: 10px; }
@@ -1317,6 +1347,7 @@ a.resume-contact-item:hover {
 .project-title {
   color: var(--white-2);
   font-size: var(--fs-5);
+  transition: color 0.3s ease;
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
