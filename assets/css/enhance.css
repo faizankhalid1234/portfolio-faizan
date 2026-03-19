@@ -1,0 +1,272 @@
+/**
+ * Faizan Portfolio — layout & visual refresh
+ * Loads after style.css
+ */
+
+:root {
+  --accent: hsl(43, 96%, 68%);
+  --accent-soft: hsla(43, 96%, 68%, 0.12);
+  --accent-glow: hsla(43, 96%, 68%, 0.25);
+  --surface-glass: hsla(240, 6%, 10%, 0.85);
+  --surface-border: hsla(0, 0%, 100%, 0.08);
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --font-display: "Plus Jakarta Sans", "Poppins", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  background: hsl(220, 14%, 6%);
+  background-image:
+    radial-gradient(ellipse 100% 80% at 50% -30%, hsla(43, 90%, 55%, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 100% 0%, hsla(200, 60%, 40%, 0.08), transparent),
+    radial-gradient(ellipse 40% 40% at 0% 100%, hsla(43, 80%, 45%, 0.06), transparent);
+  background-attachment: fixed;
+}
+
+/* Glass panels */
+.sidebar,
+article {
+  background: var(--surface-glass) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--surface-border) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow:
+    0 4px 24px hsla(0, 0%, 0%, 0.35),
+    inset 0 1px 0 hsla(0, 0%, 100%, 0.04);
+}
+
+article.active {
+  animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  margin-bottom: 88px;
+}
+
+@media (min-width: 1250px) {
+  main {
+    gap: 28px !important;
+    max-width: 1240px !important;
+    padding: 0 16px;
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    flex: 0 0 300px;
+    max-width: 300px;
+    padding: 28px 22px !important;
+    top: 24px !important;
+    padding-top: 28px !important;
+  }
+
+  .main-content {
+    flex: 1;
+    min-width: 0 !important;
+    width: auto !important;
+  }
+}
+
+/* Navbar — pill tabs */
+.navbar {
+  background: hsla(240, 8%, 12%, 0.9) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 999px !important;
+  padding: 6px 10px !important;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.25);
+}
+
+.navbar-list {
+  gap: 4px !important;
+  flex-wrap: nowrap;
+}
+
+.navbar-link {
+  padding: 10px 18px !important;
+  border-radius: 999px !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.02em;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.navbar-link:hover {
+  background: hsla(0, 0%, 100%, 0.06);
+  color: var(--white-2) !important;
+}
+
+.navbar-link.active {
+  background: linear-gradient(135deg, hsla(43, 96%, 68%, 0.2), hsla(43, 96%, 68%, 0.08)) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 0 20px var(--accent-soft);
+}
+
+.navbar-link.active::after {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .navbar {
+    border-radius: 20px 20px 0 0 !important;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 8px 6px !important;
+  }
+
+  .navbar-list {
+    justify-content: space-around;
+  }
+
+  .navbar-link {
+    padding: 12px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    margin-bottom: 24px;
+    width: fit-content;
+    margin-left: auto;
+  }
+}
+
+/* Article titles */
+.article-title {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+.article-title::after {
+  width: 48px !important;
+  height: 4px !important;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent), hsla(43, 96%, 68%, 0.3)) !important;
+}
+
+/* Hero */
+.about-hero {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--surface-border);
+  background: linear-gradient(145deg, hsla(43, 96%, 68%, 0.06), transparent 60%) !important;
+}
+
+.hero-name {
+  font-weight: 700 !important;
+}
+
+.cta-primary {
+  border-radius: 12px !important;
+}
+
+.cta-secondary,
+.cta-outline {
+  border-radius: 12px !important;
+}
+
+/* Service & skills cards */
+.service-item,
+.skills-list.content-card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--surface-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-item:hover {
+  border-color: hsla(43, 96%, 68%, 0.15);
+  box-shadow: 0 12px 40px hsla(0, 0%, 0%, 0.25), 0 0 0 1px var(--accent-soft);
+}
+
+.info-content .title {
+  background: linear-gradient(135deg, hsla(43, 96%, 68%, 0.15), hsla(240, 8%, 18%, 1)) !important;
+  border: 1px solid hsla(43, 96%, 68%, 0.2);
+  font-weight: 500 !important;
+}
+
+/* Avatar ring */
+.avatar-box {
+  box-shadow:
+    0 0 0 3px hsla(43, 96%, 68%, 0.15),
+    0 8px 32px hsla(0, 0%, 0%, 0.4) !important;
+}
+
+/* Contact form */
+.form-input {
+  border-radius: 14px !important;
+  background: hsla(240, 8%, 14%, 0.6) !important;
+  border-color: var(--surface-border) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: hsla(43, 96%, 68%, 0.4) !important;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-btn {
+  border-radius: 14px !important;
+}
+
+/* Portfolio subtitle */
+.portfolio-subtitle {
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Filter pills */
+.filter-item button {
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.filter-item button.active {
+  background: linear-gradient(135deg, hsla(43, 96%, 68%, 0.2), hsla(43, 96%, 68%, 0.06)) !important;
+  border-color: hsla(43, 96%, 68%, 0.25);
+  color: var(--accent) !important;
+}
+
+/* Resume links */
+.resume .timeline-list span a {
+  border-radius: 10px !important;
+}
+
+@media (min-width: 580px) {
+  article {
+    padding: 28px 32px !important;
+  }
+
+  .sidebar {
+    padding: 22px !important;
+  }
+}
+
+/* Separator */
+.separator {
+  background: linear-gradient(90deg, transparent, var(--surface-border), transparent) !important;
+}
