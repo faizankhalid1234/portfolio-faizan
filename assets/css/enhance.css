@@ -237,6 +237,98 @@ main {
   line-height: 1.6;
 }
 
+/* Premium project cards */
+.project-list {
+  gap: 26px !important;
+}
+
+.project-item > a {
+  position: relative;
+  padding: 10px;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  background: linear-gradient(160deg, hsla(240, 10%, 18%, 0.9), hsla(240, 8%, 12%, 0.95));
+  box-shadow: 0 8px 26px hsla(0, 0%, 0%, 0.28);
+}
+
+.project-item > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, hsla(43, 96%, 68%, 0.35), transparent 42%, hsla(43, 96%, 68%, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.project-item > a:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow: 0 18px 42px hsla(0, 0%, 0%, 0.36), 0 0 0 1px hsla(43, 96%, 68%, 0.2);
+}
+
+.project-img {
+  margin-bottom: 13px !important;
+  border: 1px solid hsla(0, 0%, 100%, 0.06);
+}
+
+.project-img::before {
+  background: linear-gradient(to top, hsla(220, 20%, 8%, 0.55), transparent 55%) !important;
+}
+
+.project-title {
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+}
+
+.project-category {
+  margin-top: 2px;
+  font-size: 12px !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Resume readability + ATS-style section rhythm */
+.resume .h3 {
+  margin-bottom: 12px !important;
+  letter-spacing: 0.01em;
+}
+
+.resume-summary p,
+.resume .timeline-text {
+  line-height: 1.78 !important;
+  color: hsla(0, 0%, 100%, 0.82);
+}
+
+.resume .timeline {
+  margin-bottom: 34px !important;
+}
+
+.resume .timeline .title-wrapper {
+  margin-bottom: 18px !important;
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.08);
+}
+
+.resume .timeline-item {
+  padding: 6px 0 8px;
+}
+
+.resume .timeline-item-title {
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.resume .timeline-list span {
+  display: inline-flex;
+  margin-bottom: 8px;
+}
+
+.resume .skills-list .skills-item {
+  line-height: 1.75;
+}
+
 /* Filter pills */
 .filter-item button {
   border-radius: 999px !important;
@@ -254,6 +346,51 @@ main {
 /* Resume links */
 .resume .timeline-list span a {
   border-radius: 10px !important;
+}
+
+.resume-links-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.resume-divider {
+  display: none;
+}
+
+.resume-links-bar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid hsla(43, 96%, 68%, 0.28);
+  background: linear-gradient(135deg, hsla(43, 96%, 68%, 0.16), hsla(240, 10%, 18%, 0.96));
+  color: var(--accent) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.24);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.resume-links-bar a:hover {
+  transform: translateY(-1px);
+  border-color: hsla(43, 96%, 68%, 0.5);
+  box-shadow: 0 10px 24px hsla(0, 0%, 0%, 0.32), 0 0 0 1px hsla(43, 96%, 68%, 0.22);
+}
+
+.social-item .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: hsla(240, 10%, 17%, 0.9);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.04);
 }
 
 @media (min-width: 580px) {
