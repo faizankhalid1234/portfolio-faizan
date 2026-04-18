@@ -1,6 +1,18 @@
 'use strict';
 
-
+(function () {
+  var yearEl = document.getElementById('copyright-year');
+  if (yearEl) {
+    var y = new Date().getFullYear();
+    yearEl.textContent = String(y);
+    yearEl.dateTime = String(y);
+  }
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js').catch(function () {});
+    });
+  }
+})();
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
