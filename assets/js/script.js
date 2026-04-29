@@ -8,7 +8,23 @@
     yearEl.dateTime = String(y);
   }
   if ('serviceWorker' in navigator) {
+    var isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
     window.addEventListener('load', function () {
+      if (isLocalHost) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          registrations.forEach(function (registration) {
+            registration.unregister();
+          });
+        }).catch(function () {});
+        if ('caches' in window) {
+          caches.keys().then(function (keys) {
+            keys.forEach(function (key) {
+              caches.delete(key);
+            });
+          }).catch(function () {});
+        }
+        return;
+      }
       navigator.serviceWorker.register('./sw.js').catch(function () {});
     });
   }
