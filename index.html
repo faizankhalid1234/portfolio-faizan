@@ -10,7 +10,18 @@
   <meta name="keywords" content="Faizan Khalid, Full Stack Developer, portfolio, React, Next.js, Node.js, Django, Supabase, web developer Pakistan, Gujranwala, JavaScript, TypeScript, REST API, MongoDB, PostgreSQL, Vercel">
   <meta name="author" content="Faizan Khalid">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#12151a">
+  <meta name="theme-color" content="#0d1117" id="theme-color-meta">
+
+  <script>
+    (function () {
+      var theme = localStorage.getItem('portfolio-theme');
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        var meta = document.getElementById('theme-color-meta');
+        if (meta) meta.setAttribute('content', '#f5f7fa');
+      }
+    })();
+  </script>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Faizan Khalid">
@@ -87,7 +98,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Faizan Khalid" width="80" class="avatar-img profile-photo">
+          <img src="./assets/images/my-avatar.png" alt="Faizan Khalid" width="92" height="92" class="avatar-img profile-photo">
         </figure>
 
         <div class="info-content">
@@ -236,6 +247,13 @@
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
+          <li class="navbar-item navbar-item--theme">
+            <button class="theme-icon-btn" type="button" data-theme-toggle aria-label="Switch to light theme" title="Light mode">
+              <ion-icon name="sunny-outline" class="theme-icon theme-icon--light" aria-hidden="true"></ion-icon>
+              <ion-icon name="moon-outline" class="theme-icon theme-icon--dark" aria-hidden="true"></ion-icon>
+            </button>
+          </li>
+
         </ul>
 
       </nav>
@@ -270,8 +288,9 @@
 
           <p>
             I develop full-stack web apps—mobile-friendly, performant, and aligned with modern best practices.
-            Whether it's a portfolio, business site, or custom web application, I deliver quality code you can rely on.
-            I also handle office management—documentation, workflows, and productivity tools.
+            Whether it's a portfolio, business site, WordPress website, or custom web application, I deliver quality code you can rely on.
+            I also build AI automation workflows with n8n—connecting apps, APIs, and business tools to automate repetitive tasks, notifications, and data flows.
+            Alongside development, I handle office management—documentation, workflows, and productivity tools.
           </p>
         </section>
 
@@ -296,7 +315,39 @@
                 <h4 class="h4 service-item-title">Web development</h4>
 
                 <p class="service-item-text">
-                  HTML, CSS, JavaScript, React JS, Python • PostgreSQL, Supabase, MongoDB, MySQL • Firebase, GitHub, Vercel deployment • Android Studio
+                  Full-stack web apps with React.js, Next.js, Node.js, Express.js, Python, and Django. REST APIs, responsive UI, PostgreSQL, Supabase, MongoDB, and deployment on Vercel, Netlify, and Railway.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="AI automation icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">AI Automation</h4>
+
+                <p class="service-item-text">
+                  Smart workflow automation with n8n — AI agents, AI voice agents, React AI chatbots, RAG chatbots, LinkedIn scraper bots, and AI post generators. Connect APIs, CRMs, and apps to automate leads, content, notifications, and daily business tasks.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="WordPress development icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">WordPress Development</h4>
+
+                <p class="service-item-text">
+                  Professional WordPress websites for businesses, portfolios, and blogs — custom themes, plugin setup, WooCommerce stores, landing pages, speed optimization, and SEO-friendly layouts ready to launch.
                 </p>
               </div>
 
@@ -330,213 +381,13 @@
         <section class="service">
           <h3 class="h3 service-title">Technical Skills</h3>
           <ul class="skills-list content-card">
-            <li class="skills-item"><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, SQL, HTML5, CSS3</li>
-            <li class="skills-item"><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, Responsive UI/UX Design</li>
-            <li class="skills-item"><strong>Backend:</strong> Node.js, Express.js, Python Django, Django REST Framework, Supabase (Auth, Realtime, APIs), RESTful API Development, Socket.io</li>
-            <li class="skills-item"><strong>Databases:</strong> PostgreSQL, Supabase (Postgres), MySQL, MongoDB, SQLite</li>
-            <li class="skills-item"><strong>Tools:</strong> Git & GitHub, Postman, VS Code, Cursor AI, ChatGPT, Cloud AI, n8n (AI Automation)</li>
-            <li class="skills-item"><strong>Deployment:</strong> Vercel, Netlify, Railway</li>
-            <li class="skills-item"><strong>Additional:</strong> Payment Gateway Integration, Authentication & Authorization, Office IT Support, Network Troubleshooting</li>
+            <li class="skills-item"><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, Redux, WordPress, Responsive Web Design</li>
+            <li class="skills-item"><strong>Backend:</strong> Node.js, Express.js, Python, Django, Django REST Framework (DRF)</li>
+            <li class="skills-item"><strong>Databases:</strong> MongoDB, PostgreSQL, MySQL, SQLite, Supabase, Prisma</li>
+            <li class="skills-item"><strong>AI & Automation:</strong> n8n Workflow Automation, AI Agents, AI Voice Agents, RAG Chatbots, React AI Chatbots</li>
+            <li class="skills-item"><strong>LLM & AI Tools:</strong> OpenAI API, Groq (Whisper), Google Gemini, Prompt Engineering, Audio Transcription, AI Pipelines</li>
+            <li class="skills-item"><strong>Tools & Platforms:</strong> Git, GitHub, WordPress, Vercel, Netlify, Railway, Cursor AI, ChatGPT</li>
           </ul>
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Faizan Khalid" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Faizan Khalid</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Your Name was hired to create a corporate identity. We were very pleased with the work done. They have a
-                    lot of experience
-                    and are very concerned about the needs of the client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Your Name was hired to create a corporate identity. We were very pleased with the work done. They have a
-                    lot of experience
-                    and are very concerned about the needs of the client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Your Name was hired to create a corporate identity. We were very pleased with the work done. They have a
-                    lot of experience
-                    and are very concerned about the needs of the client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Your Name was hired to create a corporate identity. We were very pleased with the work done. They have a
-                    lot of experience
-                    and are very concerned about the needs of the client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Faizan Khalid" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Faizan Khalid</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Your Name was hired to create a corporate identity. We were very pleased with the work done. They have a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
         </section>
 
       </article>
@@ -582,20 +433,19 @@
         <section class="about-text resume-summary">
           <h3 class="h3">Professional Summary</h3>
           <p>
-            Full Stack Developer with 2+ years of experience building scalable web applications, RESTful APIs, and real-time systems. Delivered production-ready solutions including AlyBank (fintech banking app) and an Attendance Management Platform with role-based dashboards, GPS/camera check-in, and company-scoped reporting. Skilled in React.js, Next.js, Node.js, Supabase, and PostgreSQL. I also design AI-powered automations with n8n—connecting apps, APIs, and data flows to reduce manual work and speed up business operations.
+            Full Stack Developer with 2+ years of experience building scalable web applications, RESTful APIs, and real-time systems. Delivered production-ready solutions including AlyBank (fintech banking app) and an Attendance Management Platform with role-based dashboards, GPS/camera check-in, and company-scoped reporting. Skilled in React.js, Next.js, Node.js, WordPress, Supabase, and PostgreSQL. I also design AI-powered automations with n8n—connecting apps, APIs, and data flows to reduce manual work and speed up business operations.
           </p>
         </section>
 
         <section class="skill">
           <h3 class="h3 skills-title">Technical Skills</h3>
           <ul class="skills-list content-card">
-            <li class="skills-item"><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, SQL, HTML5, CSS3</li>
-            <li class="skills-item"><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, Responsive UI/UX Design</li>
-            <li class="skills-item"><strong>Backend:</strong> Node.js, Express.js, Python Django, Django REST Framework, Supabase (Auth, Realtime, APIs), RESTful API Development, Socket.io</li>
-            <li class="skills-item"><strong>Databases:</strong> PostgreSQL, Supabase (Postgres), MySQL, MongoDB, SQLite</li>
-            <li class="skills-item"><strong>Tools:</strong> Git & GitHub, Postman, VS Code, Cursor AI, ChatGPT, Cloud AI, n8n (AI Automation)</li>
-            <li class="skills-item"><strong>Deployment:</strong> Vercel, Netlify, Railway</li>
-            <li class="skills-item"><strong>Additional:</strong> Payment Gateway Integration, Authentication & Authorization, Office IT Support, Network Troubleshooting</li>
+            <li class="skills-item"><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, Redux, WordPress, Responsive Web Design</li>
+            <li class="skills-item"><strong>Backend:</strong> Node.js, Express.js, Python, Django, Django REST Framework (DRF)</li>
+            <li class="skills-item"><strong>Databases:</strong> MongoDB, PostgreSQL, MySQL, SQLite, Supabase, Prisma</li>
+            <li class="skills-item"><strong>AI & Automation:</strong> n8n Workflow Automation, AI Agents, AI Voice Agents, RAG Chatbots, React AI Chatbots</li>
+            <li class="skills-item"><strong>LLM & AI Tools:</strong> OpenAI API, Groq (Whisper), Google Gemini, Prompt Engineering, Audio Transcription, AI Pipelines</li>
+            <li class="skills-item"><strong>Tools & Platforms:</strong> Git, GitHub, WordPress, Vercel, Netlify, Railway, Cursor AI, ChatGPT</li>
           </ul>
         </section>
 
