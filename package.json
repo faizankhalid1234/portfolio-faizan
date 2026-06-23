@@ -1,9 +1,16 @@
 {
   "name": "faizan-portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Faizan Khalid - Full Stack Developer Portfolio",
   "scripts": {
-    "start": "npx serve -l 3000",
-    "dev": "npx serve -l 3000"
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify",
+    "build": "npm run build:css",
+    "watch": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "start": "npm run build:css && npx serve -l 3000",
+    "dev": "npm run build:css && npx serve -l 3000"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
   }
 }
