@@ -317,7 +317,7 @@
   }
 
   .project-detail__desc {
-    @apply mb-2 line-clamp-3 text-xs leading-relaxed text-zinc-400;
+    @apply mb-2 text-xs leading-relaxed text-zinc-400 sm:text-sm;
   }
 
   .project-detail__link {

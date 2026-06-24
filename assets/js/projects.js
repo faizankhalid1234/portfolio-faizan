@@ -14,6 +14,18 @@ var PROJECTS = [
     deploy: 'Vercel'
   },
   {
+    title: 'Ghazi Restaurant (مطعم غازي)',
+    category: 'web development',
+    url: 'https://ghazi-resturent.vercel.app/',
+    image: './assets/images/blog-2.jpg',
+    alt: 'Ghazi Restaurant bilingual website',
+    desc: 'Premium bilingual restaurant website for Ghazi Restaurant (مطعم غازي) — cinematic hero with brand storytelling, signature dishes & chef specials menu, ambiance photo gallery, guest reviews, online table reservation form, location & hours section, and instant booking via WhatsApp and email. Built with a modern dark-gold UI, smooth scroll navigation, Arabic/English-friendly layout, and fully responsive mobile-first design for diners on every device.',
+    lang: 'React.js, JavaScript, Tailwind CSS',
+    backend: 'Node.js, REST API',
+    database: 'Third-party APIs (email & WhatsApp)',
+    deploy: 'Vercel'
+  },
+  {
     title: 'E-Commerce Store',
     category: 'web development',
     url: 'https://ecomerce-gp49.vercel.app/',
