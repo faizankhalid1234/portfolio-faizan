@@ -152,19 +152,27 @@
     @apply bg-gradient-to-r from-brand-400 via-brand-300 to-accent-light bg-clip-text text-transparent;
   }
 
+  .hero-section {
+    @apply pt-2 md:pt-4;
+  }
+
+  .hero-open {
+    @apply relative py-6 sm:py-8 lg:py-10;
+  }
+
   .hero-name-block {
-    @apply mb-1 max-w-xl;
+    @apply mb-1 max-w-2xl;
   }
 
   .hero-greeting {
-    @apply mb-2 text-sm font-normal tracking-wide text-slate-500;
+    @apply mb-3 text-base font-normal tracking-wide text-slate-500 sm:text-lg;
     @apply dark:text-zinc-500;
     font-family: var(--font-body);
   }
 
   .hero-name {
     font-family: var(--font-display);
-    @apply text-[1.75rem] leading-snug font-medium tracking-tight text-slate-900 sm:text-[2rem] lg:text-[2.25rem];
+    @apply text-[2.25rem] leading-[1.15] font-medium tracking-tight text-slate-900 sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem];
     @apply dark:text-white;
   }
 
@@ -177,7 +185,22 @@
   }
 
   .hero-role {
-    @apply mt-2 text-sm font-normal text-brand-400/90;
+    @apply mt-3 text-base font-normal text-brand-600 sm:text-lg;
+    @apply dark:text-brand-400/90;
+  }
+
+  .hero-bio {
+    @apply text-slate-600 dark:text-zinc-400;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    @apply px-6 py-3 text-base;
+  }
+
+  .stat-card--open {
+    @apply border-slate-200/60 bg-white/50 shadow-md shadow-slate-200/40;
+    @apply dark:border-white/[0.06] dark:bg-white/[0.03] dark:shadow-black/20;
   }
 
   .gradient-border {
@@ -338,8 +361,8 @@
 
   .hero-avatar {
     @apply relative mx-auto shrink-0 overflow-hidden rounded-full lg:mx-0 lg:ml-auto;
-    width: clamp(8.75rem, 30vw, 17.5rem);
-    height: clamp(8.75rem, 30vw, 17.5rem);
+    width: clamp(10rem, 32vw, 19rem);
+    height: clamp(10rem, 32vw, 19rem);
     border: 2px solid rgba(148, 163, 184, 0.45);
     box-shadow: 0 14px 36px -10px rgba(15, 23, 42, 0.15);
     contain: layout style paint;
