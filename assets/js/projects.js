@@ -189,7 +189,9 @@ function projectCard(project) {
     '<article class="project-detail active" data-filter-item data-category="' + project.category + '">' +
       '<div class="project-detail__card glass-card overflow-hidden">' +
         '<a href="' + project.url + '" target="_blank" rel="noopener" class="project-detail__media group">' +
-          '<figure class="project-detail__frame" aria-hidden="true"></figure>' +
+          '<figure class="project-detail__frame">' +
+            '<span class="project-detail__thumb-name">' + project.title + '</span>' +
+          '</figure>' +
         '</a>' +
         '<div class="project-detail__body">' +
           '<div class="mb-1 flex flex-wrap items-center gap-2">' +

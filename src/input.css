@@ -333,19 +333,33 @@
   }
 
   .project-detail__frame {
-    @apply relative m-2 h-28 overflow-hidden rounded-lg border border-white/10 transition duration-300 sm:m-2 sm:mr-0 sm:h-auto sm:min-h-[100px] sm:max-h-[112px] sm:min-w-0 sm:flex-[0_0_30%];
-    background: linear-gradient(145deg, #1e3a8a 0%, #2563eb 42%, #60a5fa 72%, #38bdf8 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    @apply relative m-2 flex h-28 items-center justify-center overflow-hidden rounded-lg border border-white/[0.08] p-2.5 transition duration-300 sm:m-2 sm:mr-0 sm:h-auto sm:min-h-[100px] sm:max-h-[112px] sm:min-w-0 sm:flex-[0_0_30%] sm:p-3;
+    background: linear-gradient(165deg, #0a0a0a 0%, #000000 48%, #08080c 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .project-detail__thumb-name {
+    @apply relative z-[1] line-clamp-4 text-center text-[10px] font-semibold leading-snug tracking-tight text-zinc-200 sm:text-[11px];
+    font-family: var(--font-display);
   }
 
   .project-detail__frame::after {
     content: "";
-    @apply pointer-events-none absolute inset-0;
-    background: radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.18), transparent 52%);
+    @apply pointer-events-none absolute inset-0 opacity-0 transition duration-300;
+    background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12), transparent 65%);
   }
 
   .project-detail:hover .project-detail__frame {
-    background: linear-gradient(145deg, #1d4ed8 0%, #3b82f6 45%, #7dd3fc 100%);
+    @apply border-brand-500/25;
+    background: linear-gradient(165deg, #0c0c0c 0%, #000000 50%, #0a0a10 100%);
+  }
+
+  .project-detail:hover .project-detail__frame::after {
+    @apply opacity-100;
+  }
+
+  .project-detail:hover .project-detail__thumb-name {
+    @apply text-white;
   }
 
   .project-detail__body {
