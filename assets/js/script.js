@@ -8,6 +8,32 @@
     yearEl.dateTime = String(y);
   }
 
+  function applyTheme(isDark) {
+    document.documentElement.classList.toggle('dark', isDark);
+    var themeColor = document.getElementById('theme-color-meta');
+    if (themeColor) {
+      themeColor.setAttribute('content', isDark ? '#060d18' : '#f0f4fb');
+    }
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (e) {}
+  }
+
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    });
+  }
+
+  var themeColor = document.getElementById('theme-color-meta');
+  if (themeColor) {
+    themeColor.setAttribute(
+      'content',
+      document.documentElement.classList.contains('dark') ? '#060d18' : '#f0f4fb'
+    );
+  }
+
   if ('serviceWorker' in navigator) {
     var isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
     window.addEventListener('load', function () {

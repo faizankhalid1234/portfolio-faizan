@@ -39,20 +39,113 @@
 }
 
 @layer components {
+  .page-shell {
+    @apply bg-slate-50 text-slate-700;
+    @apply dark:bg-[#060d18] dark:text-zinc-300;
+  }
+
+  .text-heading {
+    @apply text-slate-900 dark:text-white;
+  }
+
+  .text-strong {
+    @apply font-medium text-slate-800 dark:text-zinc-200;
+  }
+
+  .text-body {
+    @apply text-slate-600 dark:text-zinc-400;
+  }
+
+  .text-muted {
+    @apply text-slate-500 dark:text-zinc-500;
+  }
+
+  .text-faint {
+    @apply text-slate-400 dark:text-zinc-600;
+  }
+
+  .border-theme {
+    @apply border-slate-200 dark:border-white/10;
+  }
+
+  .chip {
+    @apply rounded-full border border-slate-200 bg-slate-100/90 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-brand-400/40 hover:text-brand-600;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-400 dark:hover:text-brand-300;
+  }
+
+  .chip-sm {
+    @apply rounded-full border border-slate-200 bg-slate-100/90 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-brand-400/40 hover:text-brand-600;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-brand-500/40 dark:hover:text-brand-300;
+  }
+
+  .input-field {
+    @apply rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-200 dark:placeholder:text-zinc-600;
+  }
+
+  .dropdown-panel {
+    @apply border border-slate-200 bg-white;
+    @apply dark:border-white/10 dark:bg-[#0c1526];
+  }
+
+  .social-icon {
+    @apply flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-100/80 text-slate-600 transition hover:border-brand-400/40 hover:text-brand-600;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-400 dark:hover:border-brand-500/40 dark:hover:text-brand-400;
+  }
+
+  .mobile-bottom-nav {
+    @apply fixed right-3 bottom-3 left-3 z-50 rounded-2xl border border-slate-200/80 bg-white/95 px-1 py-1.5 shadow-2xl shadow-slate-300/40 backdrop-blur-xl;
+    @apply dark:border-white/[0.08] dark:bg-[#060d18]/95 dark:shadow-black/50;
+  }
+
+  .site-footer {
+    @apply border-t border-slate-200;
+    @apply dark:border-white/[0.06];
+  }
+
+  .theme-toggle {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-100/90 text-slate-600 transition hover:border-brand-400/40 hover:text-brand-600;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-brand-500/40 dark:hover:text-brand-300;
+  }
+
+  .theme-toggle__icon {
+    @apply text-lg;
+  }
+
+  .theme-toggle__icon--light {
+    @apply hidden;
+  }
+
+  .dark .theme-toggle__icon--dark {
+    @apply hidden;
+  }
+
+  .dark .theme-toggle__icon--light {
+    @apply block;
+  }
+
   .ambient-grid {
     background-image:
-      linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%);
   }
 
+  .dark .ambient-grid {
+    background-image:
+      linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  }
+
   .glass-card {
-    @apply rounded-2xl border border-white/[0.07] bg-[#0c1526]/90 shadow-xl shadow-black/30 backdrop-blur-xl;
+    @apply rounded-2xl border border-slate-200/80 bg-white/90 shadow-xl shadow-slate-200/50 backdrop-blur-xl;
+    @apply dark:border-white/[0.07] dark:bg-[#0c1526]/90 dark:shadow-black/30;
   }
 
   .glass-card-hover {
-    @apply rounded-2xl border border-white/[0.07] bg-[#0c1526]/90 shadow-xl shadow-black/30 backdrop-blur-xl transition duration-300 hover:border-brand-500/35 hover:shadow-brand-500/10;
+    @apply rounded-2xl border border-slate-200/80 bg-white/90 shadow-xl shadow-slate-200/50 backdrop-blur-xl transition duration-300 hover:border-brand-400/35 hover:shadow-brand-500/10;
+    @apply dark:border-white/[0.07] dark:bg-[#0c1526]/90 dark:shadow-black/30 dark:hover:border-brand-500/35;
   }
 
   .gradient-text {
@@ -64,17 +157,19 @@
   }
 
   .hero-greeting {
-    @apply mb-2 text-sm font-normal tracking-wide text-zinc-500;
+    @apply mb-2 text-sm font-normal tracking-wide text-slate-500;
+    @apply dark:text-zinc-500;
     font-family: var(--font-body);
   }
 
   .hero-name {
     font-family: var(--font-display);
-    @apply text-[1.75rem] leading-snug font-medium tracking-tight text-white sm:text-[2rem] lg:text-[2.25rem];
+    @apply text-[1.75rem] leading-snug font-medium tracking-tight text-slate-900 sm:text-[2rem] lg:text-[2.25rem];
+    @apply dark:text-white;
   }
 
   .hero-name__first {
-    @apply text-zinc-100;
+    @apply text-slate-800 dark:text-zinc-100;
   }
 
   .hero-name__last {
@@ -87,35 +182,45 @@
 
   .gradient-border {
     @apply relative rounded-2xl p-px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.35), rgba(56, 189, 248, 0.3), rgba(29, 78, 216, 0.25));
+  }
+
+  .dark .gradient-border {
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.55), rgba(56, 189, 248, 0.4), rgba(29, 78, 216, 0.3));
   }
 
   .gradient-border-inner {
-    @apply rounded-[calc(1rem-1px)] bg-[#060d18];
+    @apply rounded-[calc(1rem-1px)] bg-slate-50;
+    @apply dark:bg-[#060d18];
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:from-brand-500 hover:to-brand-400 hover:shadow-brand-500/40;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:from-brand-500 hover:to-brand-400 hover:shadow-brand-500/35;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-zinc-300 transition hover:border-brand-500/40 hover:bg-brand-500/10 hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-100/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-brand-400/40 hover:bg-brand-500/10 hover:text-brand-700;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-brand-500/40 dark:hover:text-white;
   }
 
   .section-label {
-    @apply mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-400;
+    @apply mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600;
+    @apply dark:text-brand-400;
   }
 
   .section-title {
-    @apply font-display text-2xl font-bold tracking-tight text-white sm:text-3xl;
+    @apply font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl;
+    @apply dark:text-white;
   }
 
   .skill-pill {
-    @apply rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-brand-500/40 hover:bg-brand-500/10 hover:text-brand-300;
+    @apply rounded-lg border border-slate-200 bg-slate-100/80 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-brand-400/40 hover:bg-brand-500/10 hover:text-brand-700;
+    @apply dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-brand-500/40 dark:hover:text-brand-300;
   }
 
   .about-info-card {
-    @apply flex items-start gap-3 rounded-xl border border-white/[0.07] bg-[#0c1526]/80 p-3.5;
+    @apply flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white/80 p-3.5;
+    @apply dark:border-white/[0.07] dark:bg-[#0c1526]/80;
   }
 
   .about-info-card__icon {
@@ -123,11 +228,13 @@
   }
 
   .about-info-card__label {
-    @apply text-[10px] font-semibold uppercase tracking-wider text-zinc-500;
+    @apply text-[10px] font-semibold uppercase tracking-wider text-slate-500;
+    @apply dark:text-zinc-500;
   }
 
   .about-info-card__value {
-    @apply text-sm text-zinc-300;
+    @apply text-sm text-slate-700;
+    @apply dark:text-zinc-300;
   }
 
   .about-info-card__link {
@@ -135,7 +242,8 @@
   }
 
   .about-list {
-    @apply space-y-2 text-sm leading-relaxed text-zinc-400;
+    @apply space-y-2 text-sm leading-relaxed text-slate-600;
+    @apply dark:text-zinc-400;
   }
 
   .about-list li {
@@ -148,19 +256,22 @@
   }
 
   .about-social-link {
-    @apply inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300 transition hover:border-brand-500/35 hover:bg-brand-500/10 hover:text-brand-300;
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-100/80 px-3 py-2 text-xs font-medium text-slate-600 transition hover:border-brand-400/35 hover:bg-brand-500/10 hover:text-brand-700;
+    @apply dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-brand-500/35 dark:hover:text-brand-300;
   }
 
   .site-header {
-    @apply fixed top-0 right-0 left-0 z-50 border-b border-white/[0.06] bg-[#060d18]/80 backdrop-blur-xl;
+    @apply fixed top-0 right-0 left-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl;
+    @apply dark:border-white/[0.06] dark:bg-[#060d18]/80;
   }
 
   .site-nav-link {
-    @apply relative rounded-lg px-3 py-2 text-sm font-medium text-zinc-400 transition hover:text-white;
+    @apply relative rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:text-slate-900;
+    @apply dark:text-zinc-400 dark:hover:text-white;
   }
 
   .site-nav-link.active {
-    @apply text-white;
+    @apply text-slate-900 dark:text-white;
   }
 
   .site-nav-link.active::after {
@@ -169,7 +280,8 @@
   }
 
   .mobile-nav-link {
-    @apply flex flex-1 flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold uppercase tracking-wide text-zinc-500 transition;
+    @apply flex flex-1 flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500 transition;
+    @apply dark:text-zinc-500;
   }
 
   .mobile-nav-link.active {
@@ -181,20 +293,30 @@
   }
 
   .bento-card {
-    @apply relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0c1526]/90 p-5 shadow-xl shadow-black/30 backdrop-blur-xl transition duration-300 hover:border-brand-500/35 hover:shadow-brand-500/10;
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-xl shadow-slate-200/50 backdrop-blur-xl transition duration-300 hover:border-brand-400/35 hover:shadow-brand-500/10;
+    @apply dark:border-white/[0.07] dark:bg-[#0c1526]/90 dark:shadow-black/30 dark:hover:border-brand-500/35;
   }
 
   .bento-card::before {
     content: "";
     @apply pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100;
+    background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1), transparent 55%);
+  }
+
+  .dark .bento-card::before {
     background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.14), transparent 55%);
   }
 
   .header-avatar {
     @apply relative h-9 w-9 min-h-9 min-w-9 shrink-0 overflow-hidden rounded-full sm:h-10 sm:w-10 sm:min-h-10 sm:min-w-10;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
     contain: layout style paint;
+  }
+
+  .dark .header-avatar {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 
   .header-avatar__img {
@@ -218,20 +340,35 @@
     @apply relative mx-auto shrink-0 overflow-hidden rounded-full lg:mx-0 lg:ml-auto;
     width: clamp(8.75rem, 30vw, 17.5rem);
     height: clamp(8.75rem, 30vw, 17.5rem);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.55);
+    border: 2px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 14px 36px -10px rgba(15, 23, 42, 0.15);
     contain: layout style paint;
     will-change: auto;
   }
 
+  .dark .hero-avatar {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.55);
+  }
+
   .hero-avatar__inner {
     @apply relative m-0 h-full w-full overflow-hidden rounded-full p-0;
+    background: radial-gradient(circle at 50% 38%, #e2e8f0 0%, #f1f5f9 50%, #f8fafc 100%);
+  }
+
+  .dark .hero-avatar__inner {
     background: radial-gradient(circle at 50% 38%, #121820 0%, #0a0e14 50%, #060d18 100%);
   }
 
   .hero-avatar__inner::after {
     content: "";
     @apply pointer-events-none absolute inset-0 z-[2];
+    background:
+      radial-gradient(circle at 50% 40%, transparent 40%, rgba(148, 163, 184, 0.25) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, rgba(15, 23, 42, 0.08) 100%);
+  }
+
+  .dark .hero-avatar__inner::after {
     background:
       radial-gradient(circle at 50% 40%, transparent 40%, rgba(6, 13, 24, 0.55) 100%),
       linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, transparent 40%, rgba(0, 0, 0, 0.25) 100%);
@@ -246,7 +383,8 @@
   }
 
   .stat-card {
-    @apply rounded-2xl border border-white/[0.07] bg-[#0c1526]/90 px-4 py-3 text-center shadow-xl shadow-black/30 backdrop-blur-xl;
+    @apply rounded-2xl border border-slate-200/80 bg-white/90 px-4 py-3 text-center shadow-xl shadow-slate-200/50 backdrop-blur-xl;
+    @apply dark:border-white/[0.07] dark:bg-[#0c1526]/90 dark:shadow-black/30;
   }
 
   .page-section {
@@ -333,13 +471,19 @@
   }
 
   .project-detail__frame {
-    @apply relative m-2 flex h-28 items-center justify-center overflow-hidden rounded-lg border border-white/[0.08] p-2.5 transition duration-300 sm:m-2 sm:mr-0 sm:h-auto sm:min-h-[100px] sm:max-h-[112px] sm:min-w-0 sm:flex-[0_0_30%] sm:p-3;
+    @apply relative m-2 flex h-28 items-center justify-center overflow-hidden rounded-lg border border-slate-300/60 p-2.5 transition duration-300 sm:m-2 sm:mr-0 sm:h-auto sm:min-h-[100px] sm:max-h-[112px] sm:min-w-0 sm:flex-[0_0_30%] sm:p-3;
+    background: linear-gradient(165deg, #1e293b 0%, #0f172a 48%, #020617 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .dark .project-detail__frame {
+    @apply border-white/[0.08];
     background: linear-gradient(165deg, #0a0a0a 0%, #000000 48%, #08080c 100%);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .project-detail__thumb-name {
-    @apply relative z-[1] line-clamp-4 text-center text-[10px] font-semibold leading-snug tracking-tight text-zinc-200 sm:text-[11px];
+    @apply relative z-[1] line-clamp-4 text-center text-[10px] font-semibold leading-snug tracking-tight text-slate-100 sm:text-[11px];
     font-family: var(--font-display);
   }
 
@@ -371,11 +515,13 @@
   }
 
   .project-detail__title {
-    @apply mb-1 text-sm font-semibold leading-snug text-white;
+    @apply mb-1 text-sm font-semibold leading-snug text-slate-900;
+    @apply dark:text-white;
   }
 
   .project-detail__desc {
-    @apply mb-2 text-xs leading-relaxed text-zinc-400 sm:text-sm;
+    @apply mb-2 text-xs leading-relaxed text-slate-600 sm:text-sm;
+    @apply dark:text-zinc-400;
   }
 
   .project-detail__link {
@@ -387,11 +533,13 @@
   }
 
   .project-meta li {
-    @apply inline-flex items-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.03] px-1.5 py-0.5 text-[10px];
+    @apply inline-flex items-center gap-1 rounded-md border border-slate-200 bg-slate-100/80 px-1.5 py-0.5 text-[10px];
+    @apply dark:border-white/[0.06] dark:bg-white/[0.03];
   }
 
   .project-meta__label {
-    @apply font-medium text-zinc-500;
+    @apply font-medium text-slate-500;
+    @apply dark:text-zinc-500;
   }
 
   .project-meta__label::after {
@@ -399,7 +547,8 @@
   }
 
   .project-meta__value {
-    @apply text-zinc-300;
+    @apply text-slate-700;
+    @apply dark:text-zinc-300;
   }
 
   .project-card:hover .project-overlay {
@@ -412,13 +561,15 @@
 
   .timeline-dot::before {
     content: "";
-    @apply absolute -left-[1.85rem] top-1.5 h-3 w-3 rounded-full bg-brand-500 ring-4 ring-[#060d18];
+    @apply absolute -left-[1.85rem] top-1.5 h-3 w-3 rounded-full bg-brand-500 ring-4 ring-slate-50;
+    @apply dark:ring-[#060d18];
     box-shadow: 0 0 14px color-mix(in srgb, var(--color-brand-400) 50%, transparent);
   }
 
   .timeline-line::before {
     content: "";
-    @apply absolute -left-6 top-5 bottom-0 w-px bg-white/10;
+    @apply absolute -left-6 top-5 bottom-0 w-px bg-slate-200;
+    @apply dark:bg-white/10;
   }
 
   .timeline-item:last-child::before {
