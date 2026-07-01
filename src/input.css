@@ -333,23 +333,19 @@
   }
 
   .project-detail__frame {
-    @apply relative m-2 overflow-hidden rounded-lg border border-brand-500/20 bg-[#060d18] sm:m-2 sm:mr-0 sm:min-h-[100px] sm:max-h-[112px];
+    @apply relative m-2 h-28 overflow-hidden rounded-lg border border-white/10 transition duration-300 sm:m-2 sm:mr-0 sm:h-auto sm:min-h-[100px] sm:max-h-[112px] sm:min-w-0 sm:flex-[0_0_30%];
+    background: linear-gradient(145deg, #1e3a8a 0%, #2563eb 42%, #60a5fa 72%, #38bdf8 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .project-detail__frame::after {
     content: "";
-    @apply pointer-events-none absolute inset-0 z-[1] transition duration-500;
-    background: linear-gradient(145deg, rgba(29, 78, 216, 0.38), rgba(56, 189, 248, 0.32));
-    mix-blend-mode: color;
+    @apply pointer-events-none absolute inset-0;
+    background: radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.18), transparent 52%);
   }
 
-  .project-detail:hover .project-detail__frame::after {
-    background: linear-gradient(145deg, rgba(29, 78, 216, 0.22), rgba(56, 189, 248, 0.18));
-  }
-
-  .project-detail__img {
-    @apply relative z-0 h-28 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] sm:absolute sm:inset-0 sm:h-full;
-    filter: saturate(0.65) contrast(1.05) brightness(0.92) hue-rotate(-8deg);
+  .project-detail:hover .project-detail__frame {
+    background: linear-gradient(145deg, #1d4ed8 0%, #3b82f6 45%, #7dd3fc 100%);
   }
 
   .project-detail__body {
