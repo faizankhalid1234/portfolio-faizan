@@ -332,23 +332,18 @@
 
   .header-avatar {
     @apply relative h-9 w-9 min-h-9 min-w-9 shrink-0 overflow-hidden rounded-full sm:h-10 sm:w-10 sm:min-h-10 sm:min-w-10;
-    border: 2px solid rgba(148, 163, 184, 0.45);
+    border: none;
     box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
     contain: layout style paint;
   }
 
   .dark .header-avatar {
-    border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 
   .header-avatar__img {
     @apply block h-full w-full rounded-full object-cover;
-    object-position: center 35%;
-    background: #060d18;
-    filter: contrast(1.04) saturate(1.05) brightness(0.95);
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    transform: scale(1.16);
   }
 
   .hero-grid {
@@ -363,46 +358,23 @@
     @apply relative mx-auto shrink-0 overflow-hidden rounded-full lg:mx-0 lg:ml-auto;
     width: clamp(10rem, 32vw, 19rem);
     height: clamp(10rem, 32vw, 19rem);
-    border: 2px solid rgba(148, 163, 184, 0.45);
+    border: none;
     box-shadow: 0 14px 36px -10px rgba(15, 23, 42, 0.15);
     contain: layout style paint;
     will-change: auto;
   }
 
   .dark .hero-avatar {
-    border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.55);
   }
 
   .hero-avatar__inner {
-    @apply relative m-0 h-full w-full overflow-hidden rounded-full p-0;
-    background: radial-gradient(circle at 50% 38%, #e2e8f0 0%, #f1f5f9 50%, #f8fafc 100%);
-  }
-
-  .dark .hero-avatar__inner {
-    background: radial-gradient(circle at 50% 38%, #121820 0%, #0a0e14 50%, #060d18 100%);
-  }
-
-  .hero-avatar__inner::after {
-    content: "";
-    @apply pointer-events-none absolute inset-0 z-[2];
-    background:
-      radial-gradient(circle at 50% 40%, transparent 40%, rgba(148, 163, 184, 0.25) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, rgba(15, 23, 42, 0.08) 100%);
-  }
-
-  .dark .hero-avatar__inner::after {
-    background:
-      radial-gradient(circle at 50% 40%, transparent 40%, rgba(6, 13, 24, 0.55) 100%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, transparent 40%, rgba(0, 0, 0, 0.25) 100%);
+    @apply relative m-0 h-full w-full overflow-hidden rounded-full bg-transparent;
   }
 
   .hero-avatar__img {
-    @apply relative z-[1] block h-full w-full object-cover;
-    object-position: center 35%;
-    filter: contrast(1.05) saturate(1.06) brightness(0.94);
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    @apply block h-full w-full object-cover;
+    transform: scale(1.16);
   }
 
   .stat-card {
