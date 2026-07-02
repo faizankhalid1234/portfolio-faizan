@@ -218,7 +218,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:from-brand-500 hover:to-brand-400 hover:shadow-brand-500/35;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-0 bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 outline-none transition hover:from-brand-500 hover:to-brand-400 hover:shadow-brand-500/35 focus-visible:ring-2 focus-visible:ring-brand-500/40 focus-visible:ring-offset-0;
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed border-0 opacity-50 shadow-none;
   }
 
   .btn-ghost {
@@ -375,6 +379,11 @@
   .hero-avatar__img {
     @apply block h-full w-full object-cover;
     transform: scale(1.16);
+  }
+
+  .dark .header-avatar__img,
+  .dark .hero-avatar__img {
+    transform: scale(1.22);
   }
 
   .stat-card {

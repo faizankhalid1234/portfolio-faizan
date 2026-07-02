@@ -116,17 +116,91 @@ initProjectFilters();
 const form = document.querySelector('[data-form]');
 const formInputs = document.querySelectorAll('[data-form-input]');
 const formBtn = document.querySelector('[data-form-btn]');
+const formSuccess = document.querySelector('[data-form-success]');
+const formError = document.querySelector('[data-form-error]');
+const formTimestamp = document.querySelector('[data-form-timestamp]');
+const formSubject = document.querySelector('[data-form-subject]');
+
+function formatSubmissionTimestamp() {
+  return new Intl.DateTimeFormat('en-PK', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Asia/Karachi'
+  }).format(new Date());
+}
+
+function setFormMessageState(type) {
+  if (formSuccess) formSuccess.classList.toggle('hidden', type !== 'success');
+  if (formError) formError.classList.toggle('hidden', type !== 'error');
+}
+
+function updateFormButtonState() {
+  if (!form || !formBtn) return;
+  if (form.checkValidity()) {
+    formBtn.removeAttribute('disabled');
+  } else {
+    formBtn.setAttribute('disabled', '');
+  }
+}
 
 if (form && formBtn) {
   for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener('input', function () {
-      if (form.checkValidity()) {
-        formBtn.removeAttribute('disabled');
-      } else {
-        formBtn.setAttribute('disabled', '');
-      }
-    });
+    formInputs[i].addEventListener('input', updateFormButtonState);
   }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (!form.checkValidity()) return;
+
+    setFormMessageState(null);
+
+    const originalButtonHtml = formBtn.innerHTML;
+    formBtn.setAttribute('disabled', '');
+    formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
+
+    const formData = new FormData(form);
+    const clientName = String(formData.get('Client Name') || 'Visitor').trim();
+    const clientEmail = String(formData.get('Email Address') || '').trim();
+    const submittedAt = formatSubmissionTimestamp();
+
+    formData.set('_subject', 'Portfolio Inquiry — ' + clientName + ' | Faizan Khalid');
+    formData.set('Submitted At', submittedAt);
+    if (clientEmail) {
+      formData.set('_replyto', clientEmail);
+    }
+
+    if (formSubject) {
+      formSubject.value = 'Portfolio Inquiry — ' + clientName + ' | Faizan Khalid';
+    }
+    if (formTimestamp) {
+      formTimestamp.value = submittedAt;
+    }
+
+    fetch('https://formsubmit.co/ajax/fk5095129@gmail.com', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json'
+      },
+      body: formData
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+        return response.json();
+      })
+      .then(function () {
+        form.reset();
+        updateFormButtonState();
+        formBtn.innerHTML = originalButtonHtml;
+        setFormMessageState('success');
+      })
+      .catch(function () {
+        formBtn.removeAttribute('disabled');
+        formBtn.innerHTML = originalButtonHtml;
+        setFormMessageState('error');
+      });
+  });
 }
 
 const sectionLinks = document.querySelectorAll('.section-link');
