@@ -113,13 +113,17 @@ if (select) {
 
 initProjectFilters();
 
+const CONTACT_API =
+  'https://muhammadumersheraz2000.socioglory.com/webhook/portfolio/contact';
+
 const form = document.querySelector('[data-form]');
 const formInputs = document.querySelectorAll('[data-form-input]');
 const formBtn = document.querySelector('[data-form-btn]');
 const formSuccess = document.querySelector('[data-form-success]');
 const formError = document.querySelector('[data-form-error]');
-const formTimestamp = document.querySelector('[data-form-timestamp]');
-const formSubject = document.querySelector('[data-form-subject]');
+
+const DEFAULT_ERROR_MESSAGE =
+  'Something went wrong. Please try again or email me directly at fk5095129@gmail.com.';
 
 function formatSubmissionTimestamp() {
   return new Intl.DateTimeFormat('en-PK', {
@@ -132,6 +136,9 @@ function formatSubmissionTimestamp() {
 function setFormMessageState(type) {
   if (formSuccess) formSuccess.classList.toggle('hidden', type !== 'success');
   if (formError) formError.classList.toggle('hidden', type !== 'error');
+  if (formError && type !== 'error') {
+    formError.textContent = DEFAULT_ERROR_MESSAGE;
+  }
 }
 
 function updateFormButtonState() {
@@ -159,35 +166,55 @@ if (form && formBtn) {
     formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
 
     const formData = new FormData(form);
-    const clientName = String(formData.get('Client Name') || 'Visitor').trim();
-    const clientEmail = String(formData.get('Email Address') || '').trim();
+
+    const honeypot = String(formData.get('_honey') || formData.get('_hp') || '').trim();
+    if (honeypot) {
+      form.reset();
+      updateFormButtonState();
+      formBtn.innerHTML = originalButtonHtml;
+      setFormMessageState('success');
+      return;
+    }
+
+    const clientName = String(formData.get('Client Name') || formData.get('name') || 'Visitor').trim();
+    const clientEmail = String(formData.get('Email Address') || formData.get('email') || '').trim();
+    const projectMessage = String(formData.get('Project Message') || formData.get('message') || '').trim();
     const submittedAt = formatSubmissionTimestamp();
 
-    formData.set('_subject', 'Portfolio Inquiry — ' + clientName + ' | Faizan Khalid');
-    formData.set('Submitted At', submittedAt);
-    if (clientEmail) {
-      formData.set('_replyto', clientEmail);
+    if (projectMessage.length < 10) {
+      formBtn.removeAttribute('disabled');
+      formBtn.innerHTML = originalButtonHtml;
+      setFormMessageState('error');
+      if (formError) {
+        formError.textContent = 'Message must be at least 10 characters.';
+      }
+      return;
     }
 
-    if (formSubject) {
-      formSubject.value = 'Portfolio Inquiry — ' + clientName + ' | Faizan Khalid';
-    }
-    if (formTimestamp) {
-      formTimestamp.value = submittedAt;
-    }
+    const payload = {
+      name: clientName,
+      email: clientEmail,
+      subject: 'Portfolio Inquiry — ' + clientName + ' | Faizan Khalid',
+      message: projectMessage,
+      source: 'portfolio-faizan-topaz.vercel.app',
+      submitted_at: submittedAt
+    };
 
-    fetch('https://formsubmit.co/ajax/fk5095129@gmail.com', {
+    fetch(CONTACT_API, {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      body: formData
+      body: JSON.stringify(payload)
     })
       .then(function (response) {
-        if (!response.ok) {
-          throw new Error('Request failed');
-        }
-        return response.json();
+        return response.json().then(function (data) {
+          if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Request failed');
+          }
+          return data;
+        });
       })
       .then(function () {
         form.reset();
@@ -195,10 +222,13 @@ if (form && formBtn) {
         formBtn.innerHTML = originalButtonHtml;
         setFormMessageState('success');
       })
-      .catch(function () {
+      .catch(function (err) {
         formBtn.removeAttribute('disabled');
         formBtn.innerHTML = originalButtonHtml;
         setFormMessageState('error');
+        if (formError) {
+          formError.textContent = err.message || DEFAULT_ERROR_MESSAGE;
+        }
       });
   });
 }

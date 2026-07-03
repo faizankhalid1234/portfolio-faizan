@@ -572,25 +572,19 @@
 
           <h3 class="mb-5 text-lg font-bold text-heading">Contact Form</h3>
 
-          <form action="https://formsubmit.co/fk5095129@gmail.com" method="POST" class="space-y-4" data-form>
-            <input type="hidden" name="_subject" value="Portfolio Inquiry — Faizan Khalid" data-form-subject>
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="Inquiry Type" value="Portfolio Contact Form">
-            <input type="hidden" name="Website" value="portfolio-faizan.vercel.app">
-            <input type="hidden" name="Submitted At" value="" data-form-timestamp>
+          <form class="space-y-4" data-form novalidate>
             <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="grid gap-4 sm:grid-cols-2">
-              <input type="text" name="Client Name" class="input-field w-full px-4 py-3 text-sm outline-none transition placeholder:text-faint focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20" placeholder="Full name" required data-form-input>
+              <input type="text" name="Client Name" class="input-field w-full px-4 py-3 text-sm outline-none transition placeholder:text-faint focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20" placeholder="Full name" required minlength="2" data-form-input>
 
               <input type="email" name="Email Address" class="input-field w-full px-4 py-3 text-sm outline-none transition placeholder:text-faint focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea name="Project Message" class="input-field min-h-[140px] w-full resize-y px-4 py-3 text-sm text-strong outline-none transition placeholder:text-faint focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="Project Message" class="input-field min-h-[140px] w-full resize-y px-4 py-3 text-sm text-strong outline-none transition placeholder:text-faint focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20" placeholder="Your Message" required minlength="10" data-form-input></textarea>
 
             <p class="hidden rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300" data-form-success role="status">
-              Message sent successfully. I will get back to you soon.
+              Message sent successfully. Check your email for confirmation — I'll get back to you soon.
             </p>
             <p class="hidden rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300" data-form-error role="alert">
               Something went wrong. Please try again or email me directly at fk5095129@gmail.com.
