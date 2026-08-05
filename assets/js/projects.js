@@ -2,6 +2,17 @@
 
 var PROJECTS = [
   {
+    title: 'Monal AI Dining',
+    category: 'web development',
+    url: 'https://ai-chat-mounal.vercel.app/',
+    alt: 'Monal AI Dining chat and booking website',
+    desc: 'AI-powered restaurant dining platform for Monal — warm chat board connected to an n8n production agent for table bookings, signature dish recommendations, and event planning across Islamabad, Lahore, Rawalpindi, Murree, Peshawar, and Bhera branches. Supports English and Roman Urdu, captures booking fields (name, phone, email, branch, date, time, guests), appends confirmed reservations to Google Sheets, and delivers a polished demo site with menu, branches, events, and live AI concierge chat.',
+    lang: 'React.js, JavaScript, Tailwind CSS',
+    backend: 'n8n Webhook, REST API',
+    database: 'Google Sheets, n8n Automation',
+    deploy: 'Vercel'
+  },
+  {
     title: 'Monal Lahore (Luxury Rooftop Restaurant)',
     category: 'web development',
     url: 'https://monual-resturent.vercel.app/',
