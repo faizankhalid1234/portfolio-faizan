@@ -197,18 +197,18 @@ function projectCategoryLabel(category) {
 
 function projectCard(project) {
   return (
-    '<article class="project-detail active" data-filter-item data-category="' + project.category + '">' +
+    '<article class="project-detail active reveal" data-filter-item data-category="' + project.category + '">' +
       '<div class="project-detail__card glass-card overflow-hidden">' +
-        '<a href="' + project.url + '" target="_blank" rel="noopener" class="project-detail__media group">' +
+        '<a href="' + project.url + '" target="_blank" rel="noopener" class="project-detail__media group" aria-label="Open ' + project.title + '">' +
           '<figure class="project-detail__frame">' +
             '<span class="project-detail__thumb-name">' + project.title + '</span>' +
           '</figure>' +
         '</a>' +
         '<div class="project-detail__body">' +
-          '<div class="mb-1 flex flex-wrap items-center gap-2">' +
+          '<div class="mb-2 flex flex-wrap items-center gap-2">' +
             '<span class="project-detail__tag">' + projectCategoryLabel(project.category) + '</span>' +
-            '<h3 class="project-detail__title">' + project.title + '</h3>' +
           '</div>' +
+          '<h3 class="project-detail__title">' + project.title + '</h3>' +
           '<p class="project-detail__desc">' + project.desc + '</p>' +
           '<ul class="project-meta">' +
             '<li><span class="project-meta__label">Language</span><span class="project-meta__value">' + project.lang + '</span></li>' +
