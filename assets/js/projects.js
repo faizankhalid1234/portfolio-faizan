@@ -197,7 +197,7 @@ function projectCategoryLabel(category) {
 
 function projectCard(project) {
   return (
-    '<article class="project-detail active reveal" data-filter-item data-category="' + project.category + '">' +
+    '<article class="project-detail active" data-filter-item data-category="' + project.category + '">' +
       '<div class="project-detail__card glass-card overflow-hidden">' +
         '<a href="' + project.url + '" target="_blank" rel="noopener" class="project-detail__media group" aria-label="Open ' + project.title + '">' +
           '<figure class="project-detail__frame">' +

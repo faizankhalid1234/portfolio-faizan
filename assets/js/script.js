@@ -301,7 +301,8 @@ if (pageSections.length && 'IntersectionObserver' in window) {
         obs.unobserve(entry.target);
       });
     },
-    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+    // threshold 0: tall sections (e.g. projects) still reveal when any part enters view
+    { rootMargin: '0px 0px -5% 0px', threshold: 0 }
   );
 
   revealItems.forEach(function (el) {
