@@ -189,11 +189,11 @@
   }
 
   .hero-section {
-    @apply pt-2 md:pt-4;
+    @apply pt-1 md:pt-2;
   }
 
   .hero-open {
-    @apply relative py-8 sm:py-10 lg:py-14;
+    @apply relative py-4 sm:py-6 lg:py-8;
   }
 
   .hero-name-block {
@@ -201,7 +201,7 @@
   }
 
   .hero-greeting {
-    @apply mb-2 text-lg font-medium tracking-wide text-slate-500 sm:text-xl;
+    @apply mb-1.5 text-lg font-medium tracking-wide text-slate-500 sm:text-xl;
     @apply dark:text-zinc-500;
     font-family: var(--font-body);
   }
@@ -221,7 +221,7 @@
   }
 
   .hero-role {
-    @apply mt-3 text-lg font-semibold text-brand-600 sm:text-xl;
+    @apply mt-2 text-lg font-semibold text-brand-600 sm:text-xl;
     @apply dark:text-brand-400;
   }
 
@@ -293,7 +293,7 @@
   }
 
   .section-label {
-    @apply mb-2.5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-brand-600;
+    @apply mb-1.5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-brand-600;
     @apply dark:text-brand-400;
   }
 
@@ -304,7 +304,7 @@
 
   .section-title::after {
     content: "";
-    @apply mt-3.5 block h-1 w-14 rounded-full bg-gradient-to-r from-brand-500 to-accent-sky;
+    @apply mt-2.5 block h-1 w-12 rounded-full bg-gradient-to-r from-brand-500 to-accent-sky;
   }
 
   .skill-pill {
@@ -395,7 +395,7 @@
   }
 
   .services-grid {
-    @apply grid gap-4 sm:grid-cols-2;
+    @apply grid gap-3 sm:grid-cols-2;
   }
 
   .services-grid .bento-card {
@@ -403,7 +403,7 @@
   }
 
   .bento-card {
-    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-xl shadow-slate-200/50 backdrop-blur-xl transition duration-300 hover:border-brand-400/35 hover:shadow-brand-500/10;
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-4 shadow-xl shadow-slate-200/50 backdrop-blur-xl transition duration-300 hover:border-brand-400/35 hover:shadow-brand-500/10;
     @apply dark:border-white/[0.07] dark:bg-[#0c1526]/90 dark:shadow-black/30 dark:hover:border-brand-500/35;
   }
 
@@ -444,10 +444,10 @@
 
   .header-avatar__img {
     @apply block h-full w-full rounded-full object-cover;
-    object-position: 50% 18%;
+    object-position: 50% 8%;
     background: #f8fafc;
-    transform: scale(1.08);
-    transform-origin: 50% 20%;
+    transform: scale(1.1) translateY(-5%);
+    transform-origin: 50% 12%;
   }
 
   .hero-grid {
@@ -488,15 +488,18 @@
 
   .hero-avatar__img {
     @apply block h-full w-full object-cover;
-    object-position: 50% 16%;
+    object-position: 50% 6%;
     background: #ffffff;
-    transform: scale(1.06);
-    transform-origin: 50% 18%;
+    transform: scale(1.08) translateY(-6%);
+    transform-origin: 50% 10%;
   }
 
-  .dark .header-avatar__img,
+  .dark .header-avatar__img {
+    transform: scale(1.12) translateY(-5%);
+  }
+
   .dark .hero-avatar__img {
-    transform: scale(1.08);
+    transform: scale(1.1) translateY(-6%);
   }
 
   .stat-card {
@@ -505,33 +508,33 @@
   }
 
   .page-section {
-    scroll-margin-top: 5.5rem;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    scroll-margin-top: 5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   #home.page-section {
     min-height: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   @media (min-width: 768px) {
     .page-section {
-      scroll-margin-top: 6rem;
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
+      scroll-margin-top: 5.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
 
     #home.page-section {
       min-height: auto;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
     }
   }
 
   .section-divider {
-    @apply mx-auto mb-8 h-px max-w-[12rem] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent;
+    @apply mx-auto mb-4 h-px max-w-[10rem] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent;
   }
 
   [data-filter-item]:not(.active) {
@@ -568,7 +571,7 @@
   }
 
   .projects-list {
-    @apply flex w-full flex-col items-start gap-4;
+    @apply flex w-full flex-col items-start gap-3;
   }
 
   .project-detail {
