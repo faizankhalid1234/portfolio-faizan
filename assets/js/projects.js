@@ -121,28 +121,6 @@ var PROJECTS = [
     backend: 'SPA frontend',
     database: 'Static product catalog',
     deploy: 'Vercel'
-  },
-  {
-    title: 'Premium Car Collection',
-    category: 'web development',
-    url: 'https://front-car-teal.vercel.app/',
-    alt: 'Premium Car Collection',
-    desc: 'Vehicle inventory management app — add cars, track total count, and display cards with image, year, color, price, and mileage.',
-    lang: 'React.js, JavaScript',
-    backend: 'React state management',
-    database: 'In-memory / local state',
-    deploy: 'Vercel'
-  },
-  {
-    title: 'Front Tyre',
-    category: 'web development',
-    url: 'https://front-tyre.vercel.app/',
-    alt: 'Front Tyre tracking',
-    desc: 'Car tyre management dashboard — track total cars, puncture records, recent activity, and tyre health metrics with a dark-themed UI.',
-    lang: 'React.js, JavaScript',
-    backend: 'Dashboard logic',
-    database: 'Local / mock records',
-    deploy: 'Vercel'
   }
 ];
 
