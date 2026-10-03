@@ -79,17 +79,6 @@ var PROJECTS = [
     deploy: 'Vercel'
   },
   {
-    title: 'SwipePoint (Python Django)',
-    category: 'applications',
-    url: 'https://adorable-dream-production-b5b1.up.railway.app/admin/',
-    alt: 'SwipePoint Django admin',
-    desc: 'Merchant dashboard admin for managing SwipePoint charges, secure login, and operational data flows — built for back-office control and transaction oversight.',
-    lang: 'Python, Django',
-    backend: 'Django Admin, Django REST',
-    database: 'PostgreSQL (SQLite in dev)',
-    deploy: 'Railway'
-  },
-  {
     title: 'PakWheels Clone',
     category: 'web development',
     url: 'https://pak-front.vercel.app/',
@@ -145,17 +134,6 @@ var PROJECTS = [
     deploy: 'Vercel'
   },
   {
-    title: 'Handi API',
-    category: 'web development',
-    url: 'https://handi-fronthend.vercel.app/',
-    alt: 'Handi API BIN lookup',
-    desc: 'Card information lookup tool — enter first 6 digits (BIN/IIN) to fetch issuer details for quick card verification and identification.',
-    lang: 'React.js, JavaScript',
-    backend: 'BIN lookup API',
-    database: 'External card data API',
-    deploy: 'Vercel'
-  },
-  {
     title: 'Front Tyre',
     category: 'web development',
     url: 'https://front-tyre.vercel.app/',
@@ -164,28 +142,6 @@ var PROJECTS = [
     lang: 'React.js, JavaScript',
     backend: 'Dashboard logic',
     database: 'Local / mock records',
-    deploy: 'Vercel'
-  },
-  {
-    title: 'Money Inky Six',
-    category: 'applications',
-    url: 'https://money-inky-six.vercel.app/',
-    alt: 'Money Inky Six finance app',
-    desc: 'Personal finance tracking application for income and expenses with a mobile-responsive, user-friendly interface.',
-    lang: 'React.js, JavaScript',
-    backend: 'Frontend calculations',
-    database: 'Local storage',
-    deploy: 'Vercel'
-  },
-  {
-    title: 'PCU List',
-    category: 'applications',
-    url: 'https://pcu-list.vercel.app/',
-    alt: 'PCU List',
-    desc: 'Searchable PC listing web application with modern UI/UX and optimized performance for browsing computer listings.',
-    lang: 'React.js, JavaScript',
-    backend: 'Search & filter logic',
-    database: 'Static JSON data',
     deploy: 'Vercel'
   }
 ];
