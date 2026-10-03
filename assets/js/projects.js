@@ -2,6 +2,17 @@
 
 var PROJECTS = [
   {
+    title: 'SelectaMaid',
+    category: 'web development',
+    url: 'https://selectamaid-frontend.vercel.app/',
+    alt: 'SelectaMaid domestic helpers platform Singapore',
+    desc: 'Singapore domestic helper hiring platform — browse verified biodatas, filter by language, experience, care skills and availability, request profiles, and explore end-to-end services including full-time maid placement, direct hire processing, work permit renewal, and maid training. Built with a clean modern UI, category-based matching (infant care, childcare, eldercare, cooking, pet care), employer reviews, FAQ, and WhatsApp support for families seeking trusted help.',
+    lang: 'React.js, JavaScript, Tailwind CSS',
+    backend: 'REST API / Frontend integration',
+    database: 'Helper profiles & filters API',
+    deploy: 'Vercel'
+  },
+  {
     title: 'Monal AI Dining',
     category: 'web development',
     url: 'https://ai-chat-mounal.vercel.app/',
